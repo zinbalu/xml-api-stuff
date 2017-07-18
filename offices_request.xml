@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<request>
+  <client>
+    <username>demo</username>
+    <password>demo</password>	
+  </client>
+  <request_type>offices</request_type>
+</request>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<request>
+  <client>
+    <username>iasp-dev</username>
+    <password>iasp-dev</password>
+  </client>
+  <request_type>profile</request_type>
+</request>

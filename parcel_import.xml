@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<parcels>
+ <client>
+  <username>iasp-dev</username>
+  <password>iasp-dev</password>
+ </client>
+ <system>
+  <validate>0</validate>
+  <response_type>XML</response_type>
+  <only_calculate>0</only_calculate>
+ </system>
+ <loadings>
+  <row>
+   <sender>
+    <city>Ruse</city>
+    <post_code>7000</post_code>
+    <office_code>7000</office_code>
+    <name>Иван Иванов</name>
+    <name_person></name_person>
+    <phone_num>08888888888</phone_num>
+   </sender>
+   <receiver>
+    <city>Русе</city>
+    <post_code>7000</post_code>
+    <name>Петър Петров</name>
+    <phone_num>08888888888</phone_num>
+    <sms_no/>
+    <street>Славянска</street>
+    <street_num>16</street_num>
+   </receiver>
+   <shipment>
+    <envelope_num>111111,22222,3332342</envelope_num>
+    <shipment_type>PACK</shipment_type>
+    <description>description of the content content 
+      content content content content</description>
+    <pack_count>3</pack_count>
+    <weight>1</weight>
+    <tariff_sub_code>OFFICE_DOOR</tariff_sub_code>
+    <invoice_before_pay_CD/>
+    <pay_after_accept>1</pay_after_accept>
+    <pay_after_test>0</pay_after_test>
+   </shipment>
+   <services>
+   </services>
+   <payment>
+    <side>SENDER</side>
+    <method>CASH</method>
+   </payment>
+   <instructions>
+    <e><!-- при неуспешна доставка пратката да се върне автоматично на Марин Маринов в офис Русе Градски площад -->
+     <type>return</type>
+     <delivery_fail_action>return_to_office</delivery_fail_action>
+     <return_name>Марин Маринов</return_name>
+     <return_phone>088888888</return_phone>
+     <return_email>ddd@ddd.dd</return_email>
+     <return_city>Русе</return_city>
+     <return_post_code>7000</return_post_code>
+     <return_office_code>7004</return_office_code>
+     <reject_delivery_payment_side>receiver</reject_delivery_payment_side>
+     <reject_return_payment_side>sender</reject_return_payment_side>
+    </e>
+   </instructions>
+  </row>
+ </loadings>
+</parcels>

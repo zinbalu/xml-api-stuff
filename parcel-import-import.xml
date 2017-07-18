@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<parcels>
+	<system>
+		<validate>0</validate>
+		<response_type>XML</response_type>
+		<only_calculate>0</only_calculate>
+		<process_all_parcels>0</process_all_parcels>
+		<email_errors_to>kr.vatev@gmail.com</email_errors_to>
+		<sdfasdf>qwe</sdfasdf>
+	</system>
+	<client>
+		<username>iasp-dev</username>
+		<password>iasp-dev</password>
+	</client>
+	<loadings>
+		
+		<row>
+			<mediator>weqrqwer</mediator>
+			<sender>
+				<city>София</city>
+				<post_code>1000</post_code>
+				<office_code></office_code>
+				<name>Ай Ти Партньор ЕООД</name>
+				<name_person>минчо минев</name_person>
+				<quarter/>
+				<street>васил левски 73</street>
+				<street_num/>
+				<street_bl/>
+				<street_vh/>
+				<street_et/>
+				<street_ap/>
+				<street_other/>
+				<phone_num>1325123512</phone_num>
+				<email_on_delivery>asd@example.org</email_on_delivery>
+			</sender>
+			<receiver>
+				<city>шумен</city>
+				<post_code>9700</post_code>
+				<office_code>9707</office_code>
+				<name>asd</name>
+				<name_person>userko  userkov</name_person>
+				<quarter/>
+				<street>                 УЛ. васил левски 41</street>
+				<street_num/>
+				<street_bl/>
+				<street_vh/>
+				<street_et/>
+				<street_ap/>
+				<street_other/>
+				<phone_num>123456</phone_num>
+			</receiver>
+			<shipment>
+				<shipment_type>PACK</shipment_type>
+				<description>1 x Кучето, 1 x Три билета до ъдвенчър, </description>
+				<pack_count>1</pack_count>
+				<weight>0.45</weight>
+				<tariff_sub_code>DOOR_OFFICE</tariff_sub_code>
+				<size_under_60cm1>1</size_under_60cm1>
+				<delivery_day></delivery_day>
+				<loading_num1>8774326</loading_num1>
+			</shipment>
+			<payment>
+				<side>SENDER</side>
+				<method>CASH</method>
+				<key_word/>
+				<share_percent>0</share_percent>
+			</payment>
+			<services>
+				<dc>ON</dc>
+				<cd>3.99</cd>
+				<oc>3.99</oc>
+				<cd_currency>BGN</cd_currency>
+				<cd_agreement_num1>ШН0120С2</cd_agreement_num1>
+				<cd_pay_options1>
+					<name>asdfasdf asd</name>
+					<phone>42134123124</phone>
+					<email></email>
+					
+					<money_transfer>1</money_transfer>
+					<express>0</express>
+
+					<method>office</method>
+					<BIC></BIC>
+					<IBAN>BG69UBBS80021044097219</IBAN>
+					<bank_currency>BGN</bank_currency>
+					<pay_schedule_type>week</pay_schedule_type>
+					<pay_date></pay_date>
+					<pay_weekday_1>1</pay_weekday_1>
+					<pay_weekday_2></pay_weekday_2>
+					<pay_weekday_3></pay_weekday_3>
+					<pay_weekday_4></pay_weekday_4>
+					<pay_weekday_5></pay_weekday_5>
+
+					<office_code>7006</office_code>
+
+					<city></city>
+					<post_code></post_code>
+					<quarter></quarter>
+					<street></street>
+					<street_num></street_num>
+					<other></other>
+
+					<instruction></instruction>
+				</cd_pay_options1>
+			</services>
+			<packing_list1><!-- opis -->
+				<partial_delivery>ACCEPT</partial_delivery>
+				<type>digital</type>
+				<row>
+					<e>
+						<inventory_num>123</inventory_num>
+						<description>123</description>
+						<weight>1</weight>
+						<price>2</price>
+					</e>
+					<e>
+						<inventory_num>1223</inventory_num>
+						<description>1223</description>
+						<weight>12</weight>
+						<price>2</price>
+					</e>
+				</row>
+			</packing_list1>
+			<instructions1>
+				<e1><!-- ukazanie ot shablon -->
+					<template>ime_na_shablon</template>
+				</e1>
+
+				<e1><!-- ukazanie za vrushtane -->
+					<type>return</type>
+					<days_until_return>41</days_until_return>
+					<delivery_fail_action>return_to_address</delivery_fail_action>
+					<dp_ap>ap.</dp_ap>
+					<dp_bl>vh.</dp_bl>
+					<dp_city>Shumen</dp_city>
+					<dp_post_code>9700</dp_post_code>
+					<dp_email>asd@example.org</dp_email>
+					<dp_et>et.</dp_et>
+					<dp_face>dp face</dp_face>
+					<dp_name>dp name</dp_name>
+					<dp_office>Шумен</dp_office>
+					<dp_office_code>9700</dp_office_code>
+					<dp_other>drugo</dp_other>
+					<dp_payment_side>receiver</dp_payment_side>
+					<dp_phone>2394123421</dp_phone>
+					<dp_quarter>Trakiya</dp_quarter>
+					<dp_return_to>address</dp_return_to>
+					<dp_street>bul. Simeon Veliki</dp_street>
+					<dp_street_num>3</dp_street_num>
+					<dp_type>shipment</dp_type>
+					<dp_vh>bl.</dp_vh>
+					<print_return_loading>1</print_return_loading>
+					<reject_delivery_payment_side>sender</reject_delivery_payment_side>
+					<reject_return_payment_side>receiver</reject_return_payment_side>
+					<return_ap></return_ap>
+					<return_bl></return_bl>
+					<return_city>Varna</return_city>
+					<return_post_code>9000</return_post_code>
+					<return_email>bla@example.org</return_email>
+					<return_et></return_et>
+					<return_face>return face</return_face>
+					<return_name>return name</return_name>
+					<return_office>Варна</return_office>
+					<return_office_code>9000</return_office_code>
+					<return_other>drugo</return_other>
+					<return_phone>12341234123</return_phone>
+					<return_quarter></return_quarter>
+					<return_street>kv. Mladost bul. Vasil Levski 41</return_street>
+					<return_street_num></return_street_num>
+					<return_vh>bl.</return_vh>
+				</e1>
+			</instructions1>
+		</row>
+        <row1><!-- suzdavane na pratka za vrushtane -->
+            <returned_loading> 
+                <first_loading_num>1050009960637</first_loading_num> 
+                <first_loading_receiver_phone>0842841701</first_loading_receiver_phone> 
+            </returned_loading> 
+        </row1>
+        <row1>
+        	<sender>
+				<city>шумен</city>
+				<post_code>9700</post_code>
+				<office_code>9700</office_code>
+				<name>Ай Ти Партньор ЕООД</name>
+				<name_person>минчо минев</name_person>
+				<quarter/>
+				<street1>бул. симеон велики 66</street1>
+				<street_num/>
+				<street_bl/>
+				<street_vh/>
+				<street_et/>
+				<street_ap/>
+				<street_other/>
+				<phone_num>1325123512</phone_num>
+				<email_on_delivery>asd@example.org</email_on_delivery>
+			</sender>
+			<receiver>
+				<city>шумен</city>
+				<post_code>9700</post_code>
+				<office_code>9700</office_code>
+				<name>asd</name>
+				<name_person>userko  userkov</name_person>
+				<quarter/>
+				<street>                 УЛ. васил левски 41</street>
+				<street_num/>
+				<street_bl/>
+				<street_vh/>
+				<street_et/>
+				<street_ap/>
+				<street_other/>
+				<phone_num>123456</phone_num>
+			</receiver>
+			<shipment>
+				<shipment_type>PACK</shipment_type>
+				<description>1 x Кучето, 1 x Три билета до ъдвенчър, </description>
+				<pack_count>1</pack_count>
+				<weight>0.45</weight>
+				<tariff_sub_code>OFFICE_OFFICE</tariff_sub_code>
+				<size_under_60cm1>1</size_under_60cm1>
+				<delivery_day></delivery_day>
+			</shipment>
+			<payment>
+				<side>SENDER</side>
+				<method>CASH</method>
+				<key_word/>
+				<share_percent>50</share_percent>
+			</payment>
+			<services>
+				<dc>ON</dc>
+				<cd>3.99</cd>
+				<oc>3.99</oc>
+				<cd_currency>BGN</cd_currency>
+				<cd_agreement_num>ШН0120С2</cd_agreement_num>
+				<cd_pay_options1>
+					<name>asdfasdf asd</name>
+					<phone>42134123124</phone>
+					<email></email>
+					
+					<money_transfer>1</money_transfer>
+					<express>0</express>
+
+					<method>office</method>
+					<BIC></BIC>
+					<IBAN>BG69UBBS80021044097219</IBAN>
+					<bank_currency>BGN</bank_currency>
+					<pay_schedule_type>week</pay_schedule_type>
+					<pay_date></pay_date>
+					<pay_weekday_1>1</pay_weekday_1>
+					<pay_weekday_2></pay_weekday_2>
+					<pay_weekday_3></pay_weekday_3>
+					<pay_weekday_4></pay_weekday_4>
+					<pay_weekday_5></pay_weekday_5>
+
+					<office_code>7006</office_code>
+
+					<city></city>
+					<post_code></post_code>
+					<quarter></quarter>
+					<street></street>
+					<street_num></street_num>
+					<other></other>
+
+					<instruction></instruction>
+				</cd_pay_options1>
+			</services>
+        </row1>
+	</loadings>
+</parcels>
