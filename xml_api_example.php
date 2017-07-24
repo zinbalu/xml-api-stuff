@@ -14,7 +14,7 @@ class EcontXMLClient {
         ));
         $r = curl_exec($ch);
         if($r === false) throw new Exception("Connection error.");
-        //ako potrebitelq ili parolata ne sa verni, rezultata e HTML!!
+        //if user or password are incorrect, the response is HTML!!
         return json_decode(json_encode(new \SimpleXMLElement($r)),true);//poor man's XML2Array
     }
     public static function array2XMLNode($array, \SimpleXMLElement $parentNode) {
@@ -35,52 +35,52 @@ class EcontXMLClient {
 
 $params = array(
     'system' => array(
-        'validate' => 1,//1 - samo validira dannite, 0 - suzdava pratka
-        'only_calculate' => 0,//1 - samo kalkulaciq na cena, 0 - suzdava pratka
+        'validate' => 1,//1 - only validates the data, 0 - creates a shipment
+        'only_calculate' => 0,//1 - only calculates the price for delivery, 0 - creates a shipment
         'response_type' => 'XML',
-        'email_errors_to' => 'tihomir@tivart.com',// e-mail na koito shte se izpratqt greshkite
+        //'email_errors_to' => 'tihomir@tivart.com',// request will be async, and sends mail with errors (for big requests with multiple shipments)
     ),
     'client' => array(
-        'username' => 'vatev',
-        'password' => 'vatev@pass',
+        'username' => 'iasp-dev',
+        'password' => 'iasp-dev',
     ),
     'loadings' => array(
         'row' => array(
             'sender' => array(
-                'name' => "ime na clienta",
-                'name_person' => "ime na fiz lice ako clienta e firma",
-                'email' => 'email na clienta',
-                'phone_num' => 'telefon na clienta',
-                'email_on_delivery' => 'email za notifikaciq pri dostavka na pratkata',
-                'city'=>'ime na naseleno mqsto',
-                'post_code' => 'pshtenski kod',
-                'office_code' => 'kod na ofis',//ako e ot ofis
-                'quarter' => 'ime na kvartal',
-                'street' => 'ime na ulica',
-                'street_num' => 'nomer',
-                'street_bl' => 'blok',
-                'street_vh' => 'vhod',
-                'street_et' => 'etaj',
-                'street_ap' => 'apartament',
-                'street_other' => 'dopulnitelna informaciq kum adresa'
+                'name' => "client name",
+                'name_person' => "name of the employee if client is a company",
+                'email' => 'client email',
+                'phone_num' => 'client phone',
+                'email_on_delivery' => 'email for notification when the shipment is delivered',
+                'city'=>'name of the settlement',
+                'post_code' => 'settlement post code',
+                'office_code' => 'code of the office',//if the delivery is from office
+                'quarter' => 'quarter name',
+                'street' => 'street name',
+                'street_num' => 'street number',
+                'street_bl' => 'block',
+                'street_vh' => 'entrance',
+                'street_et' => 'floor',
+                'street_ap' => 'apartment',
+                'street_other' => 'additional information on the address'
             ),
             'receiver' => array(
-                'name' => "ime na clienta",
-                'name_person' => "ime na fiz lice ako clienta e firma",
-                'email' => 'email na clienta',
-                'phone_num' => 'telefon na clienta',
-                'sms_no' => 'telefon za sms notifikaciq pri dostavka na pratkata',
-                'city'=>'ime na naseleno mqsto',
-                'post_code' => 'pshtenski kod',
-                'office_code' => 'kod na ofis',//ako e do ofis
-                'quarter' => 'ime na kvartal',
-                'street' => 'ime na ulica',
-                'street_num' => 'nomer',
-                'street_bl' => 'blok',
-                'street_vh' => 'vhod',
-                'street_et' => 'etaj',
-                'street_ap' => 'apartament',
-                'street_other' => 'dopulnitelna informaciq kum adresa'
+                'name' => "client name",
+                'name_person' => "name of the employee if client is a company",
+                'email' => 'client email',
+                'phone_num' => 'client phone',
+                'sms_no' => 'phone for notification when the shipment will be delivered',
+                'city'=>'name of the settlement',
+                'post_code' => 'settlement post code',
+                'office_code' => 'code of the office',//if the delivery is to office
+                'quarter' => 'quarter name',
+                'street' => 'street name',
+                'street_num' => 'street number',
+                'street_bl' => 'block',
+                'street_vh' => 'entrance',
+                'street_et' => 'floor',
+                'street_ap' => 'apartment',
+                'street_other' => 'additional information on the address'
             ),
             'payment' => array(
                 'side' => 'SENDER',
@@ -89,19 +89,19 @@ $params = array(
             ),
             'shipment' => array(
                 'shipment_type' => 'PACK',
-                'description' => 'opisanie na pratkata',
-                'pack_count' => 1,//broi paketi
+                'description' => 'shipment description',
+                'pack_count' => 1,//pieces count
                 'weight' => 1,
-                'tariff_sub_code' => 'DOOR_DOOR',// dali pratkata e ot/do vrata/ofis - DOOR_DOOR, DOOR_OFFICE, OFFICE_DOOR, OFFICE_OFFICE
-                'pay_after_accept' => 1,//poluchatelq moje da pregleda pratkata predi da plati nalojeniq platej
-                'pay_after_test' => 1,//poluchatelq moje da pregleda i testva pratkata predi da plati nalojeniq platej
+                'tariff_sub_code' => 'DOOR_DOOR',//delivery type from/to DOOR/OFFICE - DOOR_DOOR, DOOR_OFFICE, OFFICE_DOOR, OFFICE_OFFICE
+                'pay_after_accept' => 1,//receiver may review the contents before paying the COD
+                'pay_after_test' => 1,//receiver may test or try out the contents before paying the COD
             ),
             'services' => array(
-                'oc' => 18.42,//obqvena stoinost
-                'oc_currency' => 'BGN',//valuta na obqvenata stoinost
-                'cd' => 18.42,//nalojen platej
-                'cd_currency' => 'BGN',//valuta na nalojeniq platej
-                'cd_agreement_num' => '',//nomer na sporazumenie za izplashtane na nalojen platej (pr. ako shte se izplashta po banka)
+                'oc' => 18.42,//decalred value (insurance)
+                'oc_currency' => 'BGN',//currency of the declared value
+                'cd' => 18.42,//COD
+                'cd_currency' => 'BGN',//currency of the COD
+                'cd_agreement_num' => '',//agreement number for paying COD (ex. if cod amount will be paid via bank)
             ),
         )
     )
