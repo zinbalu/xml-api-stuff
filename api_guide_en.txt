@@ -1,0 +1,55 @@
+The main features the Econt API has are the following:
+- calculating the price of a shipment
+- creating a loading and generating PDF for print, validation of the loading data
+- request for courier
+- checking the status of a loading, COD, tracing the loading
+- information about the Econt offices
+- information about the cities served by Econt
+- information about the streets and quarters in the cities
+- information about e-econt user and his address for sending and receiving shipments
+
+Requests and responses of the API are in XML format and described in this manual - http://www.econt.com/e-econt/doc_templates/XML_manual.pdf
+English version - http://www.econt.com/e-econt/doc_templates/XML_manual_engl.pdf
+
+For calculation, validation and preparing a loading the same request is used, with the only difference being in the value of tags <validate> and <only_calulate>
+Example requests for preparing a loading: parcel_import.xml, parcel_import_ro.xml
+
+When preparing a shipment the addresses of a sender, receiver, or third parties(for receiving COD, returning a loading, etc.) are necessary to be valid by the following criteria:
+1. Valid post code and name of a city.
+2. At least one of the following:
+ - valid street name (<street>) and number (<street_num>)
+ - valid quarter name (<quarter>) and value in filed "other" (<street_other>)
+ - for cities with no data for streets: street name without validation (<street>) and number (<street_num>)
+ - for loadings upon request: valid Econt office code (<office_code>)
+
+For calculating the delivery price for shipping enough data is valid city, sender and receiver post code.
+
+Valid names of cities, streets and quarters can be received with API request to http://www.econt.com/e-econt/xml_service_tool.php:
+- cities and post codes : <request_type>cities</request_type> 
+- offices:  <request_type>offices</request_type>
+- quarters: <request_type>cities_quarters</request_type>
+- streets: <request_type>cities_streets</request_type> 
+Example requests: offices_request.xml, cities_request.xml
+
+It is also possible to give the client the option of choosing the office on a map, by using the Econt office locator.
+Minimal example implementation for choosing an office with the locator can be viewed here: http://ee.econt.com/office_locator_example.html
+
+The XML requests are sent via HTTP/HTTPS POST with one of these formats (which ever is most convenient):
+- as a file attachment with Content-type: multipart/form-data (the same as a browser submitting a form with a file input)
+- as a form parameter named 'xml' and Content-type: application/x-www-form-urlencoded (the same as a browser submitting a form with a text input named 'xml')
+- as raw POST data and Content-type: text/xml
+
+The URLs for the endpoints are:
+- for creating/calculating shipments, money transfers and requests for courier visits:
+ * test environment - http://demo.econt.com/e-econt/xml_parcel_import2.php
+ * production environment - http://www.econt.com/e-econt/xml_parcel_import2.php
+- for all other requests (getting data for offices, cities, streets, profile info and others):
+ * test environment - http://demo.econt.com/e-econt/xml_service_tool.php
+ * production environment - http://www.econt.com/e-econt/xml_service_tool.php
+
+For the test system you can use the following username: iasp-dev and password: iasp-dev
+For the production system you can use already existing e-econt account, or register new one at https://ee.econt.com/load_direct.php?target=Register
+
+Currently, authorization with SSL client certificates is not supported, but you can use SSL connection and authorize in the usual way(in the XML request)
+
+In xml_api_example.php is shown how to send a request to the API and how to convert PHP arrays from/to XML. The example contains only required fields and most commonly used services.
