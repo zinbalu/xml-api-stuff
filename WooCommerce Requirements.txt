@@ -1,0 +1,11 @@
+Системни изисквания -
+- PHP 5.3.x или по висока версия;
+- MySQL 5.0.x или по висока версия;
+- cURL PHP extension;
+- SimpleXML PHP extension;
+- max_execution_time >= 3600
+- max_input_time >= 3600
+- memory_limit >= 512M
+- mysql wait_timeout >= 3600
+- mysql max_allowed_packet >= 32M
+- server httpd_can_network_connect = true
