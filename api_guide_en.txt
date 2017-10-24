@@ -12,7 +12,7 @@ Requests and responses of the API are in XML format and described in this manual
 English version - http://www.econt.com/e-econt/doc_templates/XML_manual_engl.pdf
 
 For calculation, validation and preparing a loading the same request is used, with the only difference being in the value of tags <validate> and <only_calulate>
-Example requests for preparing a loading: parcel_import.xml, parcel_import_ro.xml
+Example requests for preparing a loading: parcel_import.xml, parcel_import_import.xml
 
 When preparing a shipment the addresses of a sender, receiver, or third parties(for receiving COD, returning a loading, etc.) are necessary to be valid by the following criteria:
 1. Valid post code and name of a city.
